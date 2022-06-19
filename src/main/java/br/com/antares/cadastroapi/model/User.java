@@ -1,9 +1,9 @@
 package br.com.antares.cadastroapi.model;
 
+import br.com.antares.cadastroapi.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @AllArgsConstructor
@@ -23,4 +23,8 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    public UserDTO getUserDTO(){
+        return new UserDTO(this.id, this.name, this.email);
+    }
 }

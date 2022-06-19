@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,7 +28,7 @@ public class UserDTO {
         return users.stream().map(UserDTO::new).collect(Collectors.toList());
     }
 
-    //TODO REFATORA USO DO OPCIONAL COMO PARAMETRO E ADD IFPRESENT
+    //TODO REFATORAR USO DO OPCIONAL COMO PARAMETRO E ADD IFPRESENT
     public static Optional<UserDTO> returnUserDTO(Optional<User> user){
         try {
             UserDTO userDTO = new UserDTO();
