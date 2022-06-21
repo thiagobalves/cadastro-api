@@ -7,12 +7,11 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/v1/registration/user")
+@RequestMapping("/v1/api/registration/user")
 public class UserController {
 
     private final UserService userService;

@@ -4,6 +4,7 @@ import br.com.antares.cadastroapi.dto.UserDTO;
 import br.com.antares.cadastroapi.model.User;
 import br.com.antares.cadastroapi.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +13,11 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository repository;
+    private final PasswordEncoder encoder;
 
-    UserService(UserRepository repository){
+    UserService(UserRepository repository, PasswordEncoder encoder){
         this.repository = repository;
+        this.encoder = encoder;
     }
 
     public List<UserDTO> getAllUsers(){
@@ -38,7 +41,7 @@ public class UserService {
             User userUpdated = userFound.get();
             userUpdated.setName(user.getName());
             userUpdated.setEmail(user.getEmail());
-            userUpdated.setPassword(user.getPassword());
+            userUpdated.setPassword(encoder.encode(user.getPassword()));
             repository.save(userUpdated);
 
             return userUpdated.getUserDTO();
