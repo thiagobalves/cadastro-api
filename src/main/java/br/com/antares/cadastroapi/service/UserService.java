@@ -31,7 +31,11 @@ public class UserService {
     }
 
     public UserDTO createNewUser(User user) {
-        User usuarioSalvo = repository.save(user);
+        User newUser = new User();
+        newUser.setName(user.getName());
+        newUser.setEmail(user.getEmail());
+        newUser.setPassword(encoder.encode(user.getPassword()));
+        User usuarioSalvo = repository.save(newUser);
         return usuarioSalvo.getUserDTO();
     }
 
