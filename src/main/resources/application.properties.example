@@ -1,0 +1,26 @@
+#SWAGGER
+spring.mvc.pathmatch.matching-strategy=ant-path-matcher
+
+#TOMCAT
+server.port = 8080
+
+# CONEXÃO COM O BANCO DE DADOS MYSQL
+spring.datasource.url=jdbc:mysql://localhost/app-financeiro-db?useTimezone=true&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.open-in-view=false
+
+# MANIPULANDO ESTRUTURAS (TABELAS)
+spring.jpa.hibernate.ddl-auto=none
+
+#TOKEN CONFIGURATION
+api.cadastro.token-expiration=900_000
+api.cadastro.token-password=uuid(chave gerada)
+api.cadastro.token-prefix=Bearer
+api.cadastro.header-string=Authorization
+api.cadastro.sign-up-url=/login
+
+
+
+SIGN_UP_URL = "/api/services/controller/user";
